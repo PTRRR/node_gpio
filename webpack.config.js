@@ -13,10 +13,10 @@ fs.readdirSync('node_modules')
 
 const serverConfig = {
   entry: {
-    'server.min': './src/server.js'
+    'server.min': './src/server/server.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist/socket'),
+    path: path.resolve(__dirname, 'dist/server'),
     filename: '[name].js'
   },
   module: {
@@ -42,10 +42,10 @@ const serverConfig = {
 
 const clientConfig = {
   entry: {
-    'client.min': './src/Client.js'
+    'app.min': './src/client/app.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist/socket'),
+    path: path.resolve(__dirname, 'dist/client'),
     filename: '[name].js'
   },
   module: {
