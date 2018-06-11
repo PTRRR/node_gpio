@@ -3,9 +3,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Ditering</title>
+  <title>WebSocket</title>
+  <script src="socket/IP.js"></script>
+  <script src="socket/client.min.js"></script>
 </head>
 <body>
-  
+  <script>
+    var client = new Client('app')
+    // 
+    client.onMessage(function (data) {
+      switch (data.type) {
+        case 'click':
+        console.log(data.message.text)
+          break
+        default:
+        console.log(data)
+          break
+      }
+    })
+    window.onclick = function () {
+      client.send('*', 'click', {text: 'dummy text'})
+    }
+  </script>
 </body>
 </html>

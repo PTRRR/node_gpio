@@ -1,7 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const nodeModules = {}
 fs.readdirSync('node_modules')
@@ -72,10 +71,7 @@ const clientConfig = {
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
       minimize: true
-    }),
-    new CleanWebpackPlugin([
-      './dev'
-    ])
+    })
   ]
 }
 
